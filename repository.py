@@ -17,7 +17,7 @@ class HistorialRepository:
 
         # Crear nuevo registro
         nuevo_registro = {
-            "cuidad": cuidad,
+            "ciudad": cuidad,
             "temp": temperatura,
             "clima": clima
         }
@@ -28,3 +28,18 @@ class HistorialRepository:
         # Guardar historial actualizado
         with open(self.archivo, "w") as f:
             json.dump(historial, f, indent=4)
+
+    def obtener_historial(self) -> list:
+        if os.path.exists(self.archivo):
+            with open(self.archivo, "r") as f:
+                historial = json.load(f)
+                return historial
+        else:
+            return []
+
+        
+
+
+
+
+
