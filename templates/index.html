@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Clima App</title>
+</head>
+
+<body>
+    <h1>Bienvenido a mi Clima App</h1>
+    <form action="" method="post">
+        <input type="text" name="ciudad" placeholder="Escribe una ciudad">
+        <input type="submit" value="Buscar Clima">
+    </form>
+    <!-- Esto es un IF en HTML/Jinja -->
+    {% if clima %}
+    <div style="margin-top: 20px; border: 1px solid #ccc; padding: 10px;">
+        <h2>Clima en {{ clima['name'] }}</h2>
+        <p>Temperatura: {{ (clima['main']['temp'] - 273.15) | round(2) }}°C</p>
+        <p>Descripción: {{ clima['weather'][0]['description'] }}</p>
+        <p>Humedad: {{ clima['main']['humidity'] }}%</p>
+    </div>
+    {% endif %}
+
+    <p>Esta página viene desde Flask</p>
+</body>
+
+</html>
