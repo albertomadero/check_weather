@@ -9,7 +9,8 @@ def mostrar_menu() -> None:
     print("\nMenú:")
     print("1. Mostrar clima de una ciudad")
     print("2. Mostrar historial de consultas")
-    print("3. Salir")
+    print("3. ver estadísticas")
+    print("4. Salir")
 
 def main() -> None:
     while True:
@@ -41,8 +42,26 @@ def main() -> None:
                     print(f"Temperatura: {consulta['temp']:.2f}°C")
                     print(f"Clima: {consulta['clima']}")
                     print("-" * 20)
+                
         elif opcion == "3":
+            datos = repo.obtener_historial()
+            dataTemp = []
+            if len(datos) == 0:
+                print("\nAún no se tiene un historial")
+            else:
+                for data in datos:
+                    temperaturas = data["temp"]
+                    dataTemp.append(temperaturas)
+                maxima = max(dataTemp)
+                minima = min(dataTemp)
+                promedio = sum(dataTemp) / len(datos)
+                print(f"\nLa maxima temperatura es {maxima:.2f}°C")
+                print(f"La minima temperatura es {minima:.2f}°C")
+                print(f"La temperatura promedio es {promedio:.2f}°C")
+                    
+        elif opcion == "4":
             break
+
         else:
             print("Opción no válida. Por favor, selecciona una opción del menú.")
         
