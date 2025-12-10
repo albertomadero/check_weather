@@ -49,12 +49,10 @@ def main() -> None:
             if len(datos) == 0:
                 print("\nAún no se tiene un historial")
             else:
-                for data in datos:
-                    temperaturas = data["temp"]
-                    dataTemp.append(temperaturas)
-                maxima = max(dataTemp)
-                minima = min(dataTemp)
-                promedio = sum(dataTemp) / len(datos)
+                temperaturas = [data["temp"] for data in datos]
+                maxima = max(temperaturas)
+                minima = min(temperaturas)
+                promedio = sum(temperaturas) / len(datos)
                 print(f"\nLa maxima temperatura es {maxima:.2f}°C")
                 print(f"La minima temperatura es {minima:.2f}°C")
                 print(f"La temperatura promedio es {promedio:.2f}°C")
