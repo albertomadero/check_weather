@@ -1,70 +1,67 @@
-# 🌤️ Consultor de Clima
+# Proyecto Clima (Híbrido) 🌤️
 
-Una aplicación de línea de comandos (CLI) moderna y robusta en Python para consultar el clima en tiempo real.
+Una aplicación completa para consultar el clima en tiempo real, desarrollada en **Python**.
+Ahora cuenta con **dos modos de uso**: Consola (CLI) y Web (Flask).
 
-## 🚀 Características
+## 🚀 Instalación
 
-*   **Consulta en Tiempo Real**: Conexión directa a la API de OpenWeatherMap.
-*   **Arquitectura Profesional**:
-    *   **Controlador**: Orquestación de lógica (`main.py`).
-    *   **Servicios**: Lógica de negocio encapsulada (`servicio_clima.py`).
-    *   **Repositorio**: Persistencia de datos desacoplada (`repository.py`).
-*   **Persistencia**: Historial de búsquedas guardado automáticamente en JSON.
-*   **Seguridad**: Manejo seguro de credenciales mediante variables de entorno (`.env`).
-*   **Código Limpio**: Uso de Type Hinting (tipado estático) y PEP 8.
-
-## 🛠️ Requisitos
-
-*   Python 3.8 o superior.
-*   Una API Key de [OpenWeatherMap](https://openweathermap.org/) (Gratuita).
-
-## 📦 Instalación
-
-1.  **Clonar el repositorio** (o descargar los archivos):
+1.  **Clonar el repositorio:**
     ```bash
-    git clone <tu-repositorio>
+    git clone https://github.com/TU_USUARIO/ProyectoNuevo.git
     cd ProyectoNuevo
     ```
 
-2.  **Crear y activar un entorno virtual** (Recomendado):
+2.  **Configurar Entorno Virtual:**
     ```bash
     python -m venv climaenv
-    # En Windows:
-    # climaenv\Scripts\activate
-    # En Linux/Mac:
-    source climaenv/bin/activate
+    source climaenv/bin/activate  # En Windows: climaenv\Scripts\activate
     ```
 
-3.  **Instalar dependencias**:
+3.  **Instalar Dependencias:**
     ```bash
     pip install -r requirements.txt
     ```
 
-4.  **Configuración**:
-    Crea un archivo llamado `.env` en la raíz del proyecto y agrega tu clave:
-    ```env
-    API_KEY=tu_clave_api_aqui_sin_comillas
-    ```
+4.  **Configurar API Key:**
+    *   Crea un archivo `.env` en la raíz.
+    *   Agrega tu clave de OpenWeatherMap:
+        ```text
+        API_KEY=tu_clave_secreta_aqui
+        ```
 
-## ▶️ Uso
+---
 
-Ejecuta el punto de entrada principal:
+## 💻 Modos de Uso
 
+### Opción A: Modo Consola (CLI)
+Ideal para consultas rápidas y ver tu historial detallado.
 ```bash
 python main.py
 ```
+*   ✅ Consultar clima por ciudad.
+*   ✅ Ver historial de búsquedas.
+*   ✅ Ver estadísticas (Temp. Máxima, Mínima y Promedio).
 
-Sigue las instrucciones en pantalla para consultar el clima de cualquier ciudad del mundo.
-
-## 📂 Estructura del Proyecto
-
-```text
-.
-├── config.py           # Gestión de configuración y credenciales
-├── main.py             # Punto de entrada (Controller)
-├── repository.py       # Capa de acceso a datos (Repository Pattern)
-├── servicio_clima.py   # Lógica de negocio (Service Layer)
-├── requirements.txt    # Dependencias del proyecto
-├── .env                # Variables de entorno (NO subir a Git)
-└── historial_climas.json # Base de datos local (generada automáticamente)
+### Opción B: Modo Web (Flask)
+Una interfaz visual amigable accesible desde el navegador.
+```bash
+python app.py
 ```
+*   Abre tu navegador en: `http://127.0.0.1:5000`
+*   ✅ Interfaz gráfica con formularios.
+*   ✅ Visualización limpia de los resultados.
+
+---
+
+## 🛠️ Tecnologías
+*   **Python 3.x**
+*   **Flask** (Web Framework)
+*   **Requests** (Consumo de APIs)
+*   **Dotenv** (Seguridad)
+*   **JSON** (Persistencia de datos)
+
+## 📂 Estructura
+*   `main.py`: Punto de entrada para la CLI.
+*   `app.py`: Punto de entrada para la Web.
+*   `servicio_clima.py`: Lógica de conexión con la API (Reutilizable).
+*   `repository.py`: Manejo de base de datos JSON (Reutilizable).
